@@ -1,31 +1,36 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import FooterHome from "../components/FooterHome/FooterHome";
 import Navbar from "../components/Navbar/Navbar";
+import Login from "../pages/login/Login";
 export default function HomeLayout() {
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "256px 1fr",
-        gap: "20px",
-      }}
-    >
-      <div>
-        <Navbar />
-      </div>
+  const user = window.localStorage.getItem("user");
+  if (user) {
+    return (
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          // height: "100vh",
+          display: "grid",
+          gridTemplateColumns: "256px 1fr",
+          gap: "20px",
         }}
       >
-        <div style={{ flex: 1 }}>
-          <Outlet />
+        <div>
+          <Navbar />
         </div>
-        <FooterHome />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div style={{ flex: 1 }}>
+            <Outlet />
+          </div>
+          <FooterHome />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <Login />;
+  }
 }

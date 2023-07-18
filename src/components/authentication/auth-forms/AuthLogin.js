@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // material-ui
-import { useTheme } from "@mui/material/styles";
 import {
   Box,
   Button,
@@ -33,6 +33,8 @@ import loginService from "../../../services/loginService";
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const FirebaseLogin = ({ ...others }) => {
+  // const navigate = useNavigate();
+
   const scriptedRef = useScriptRef();
   const [checked, setChecked] = useState(true);
 
@@ -60,15 +62,17 @@ const FirebaseLogin = ({ ...others }) => {
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             const createSkillResponse = await loginService.create(values);
+            console.log(createSkillResponse.data.username);
             window.localStorage.setItem(
-              "access_token",
-              createSkillResponse.data.token
+              "username",
+              JSON.stringify(createSkillResponse.data.username)
             );
-            console.log(window.localStorage.getItem("access_token"));
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
             }
+
+            // navigate("/report");
           } catch (err) {
             console.error(err);
             if (scriptedRef.current) {

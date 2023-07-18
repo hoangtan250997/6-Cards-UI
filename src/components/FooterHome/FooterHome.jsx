@@ -1,26 +1,33 @@
 import React from "react";
-import { Layout } from "antd";
+import { Box } from "@mui/material";
 
-const { Footer } = Layout;
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 const FooterHome = () => {
   return (
-    <Footer
-      style={{
-        display: "flex",
-        justifyContent: "center", // Căn giữa theo chiều ngang
-        alignItems: "center", // Căn giữa theo chiều dọc
-        borderRadius: "20px",
-        fontWeight: "bold",
-        fontStyle: "italic",
-        height: "3vh",
-        padding: "0",
-        backgroundColor: "rgba(255,255,255,0.5)",
+    <Box
+      sx={{
+        backgroundColor: (theme) =>
+          theme.palette.mode === "light"
+            ? theme.palette.grey[200]
+            : theme.palette.grey[800],
+        p: 6,
       }}
+      component="footer"
     >
-      © 2023 Cashu Company. All rights reserved. Website designed by Tan Nguyen
-      & Thuy Nguyen.
-    </Footer>
+      <Container maxWidth="sm">
+        <Typography variant="body2" color="text.secondary" align="center">
+          {"Copyright © "}
+          <Link color="inherit" href="https://your-website.com/">
+            Your Website
+          </Link>{" "}
+          {new Date().getFullYear()}
+          {"."}
+        </Typography>
+      </Container>
+    </Box>
   );
 };
 

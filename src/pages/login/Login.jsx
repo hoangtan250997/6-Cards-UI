@@ -64,7 +64,6 @@ const Login = () => {
                     <Grid item container direction="column" xs={12}>
                       <Typography
                         component={Link}
-                        to="/pages/register/register3"
                         variant="subtitle1"
                         sx={{ textDecoration: "none" }}
                       >
