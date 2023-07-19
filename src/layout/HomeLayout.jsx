@@ -3,8 +3,9 @@ import { Outlet } from "react-router-dom";
 import FooterHome from "../components/FooterHome/FooterHome";
 import Navbar from "../components/Navbar/Navbar";
 import Login from "../pages/login/Login";
+
 export default function HomeLayout() {
-  const user = window.localStorage.getItem("user");
+  const user = window.localStorage.getItem("username");
   if (user) {
     return (
       <div

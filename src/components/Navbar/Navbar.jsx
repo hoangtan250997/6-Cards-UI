@@ -12,12 +12,11 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
 function Navbar() {
   const remove = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("username");
     window.location.reload();
   };
 
-  const username = window.localStorage.getItem("user").username;
-  console.log(window.localStorage.getItem("username"));
+  const username = window.localStorage.getItem("username");
   return (
     <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       <nav aria-label="main mailbox folders">
@@ -38,7 +37,7 @@ function Navbar() {
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText primary="Assign" />
             </ListItemButton>
           </ListItem>
 
@@ -47,7 +46,7 @@ function Navbar() {
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText primary="Spending" />
             </ListItemButton>
           </ListItem>
 
@@ -56,7 +55,7 @@ function Navbar() {
               <ListItemIcon>
                 <DraftsIcon />
               </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText primary="Reports" />
             </ListItemButton>
           </ListItem>
         </List>

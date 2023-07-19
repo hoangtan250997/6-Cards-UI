@@ -39,9 +39,7 @@ const Login = () => {
               <AuthCardWrapper id="login-wrapper">
                 <Grid container spacing={2} justifyContent="center">
                   <Grid item sx={{ mb: 3 }}>
-                    <Link to="#">
-                      <Logo />
-                    </Link>
+                    <Logo />
                   </Grid>
                   <Grid item xs={12}>
                     <Grid
@@ -63,7 +61,6 @@ const Login = () => {
                   <Grid item xs={12}>
                     <Grid item container direction="column" xs={12}>
                       <Typography
-                        component={Link}
                         variant="subtitle1"
                         sx={{ textDecoration: "none" }}
                       >

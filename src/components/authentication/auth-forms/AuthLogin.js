@@ -33,7 +33,7 @@ import loginService from "../../../services/loginService";
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const FirebaseLogin = ({ ...others }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const scriptedRef = useScriptRef();
   const [checked, setChecked] = useState(true);
@@ -62,17 +62,18 @@ const FirebaseLogin = ({ ...others }) => {
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             const createSkillResponse = await loginService.create(values);
-            console.log(createSkillResponse.data.username);
             window.localStorage.setItem(
               "username",
-              JSON.stringify(createSkillResponse.data.username)
+              createSkillResponse.data.username
             );
+            console.log(window.localStorage.getItem("username"));
+
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
             }
-
-            // navigate("/report");
+            navigate("/report");
+            window.location.reload();
           } catch (err) {
             console.error(err);
             if (scriptedRef.current) {
