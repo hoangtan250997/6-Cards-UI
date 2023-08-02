@@ -2,6 +2,7 @@ import "./App.css";
 import HomeLayout from "./layout/HomeLayout";
 
 import Report from "./pages/report/Report";
+import DatePicker from "./components/date/DatePicker";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
         {
           path: "/report",
           element: <Report />,
+        },
+        {
+          path: "/spending",
+          element: <DatePicker />,
         },
       ],
     },

@@ -1,4 +1,4 @@
-import { request } from "../config/Http-common";
+import { request } from "../config/http-common";
 class LoginService {
   create(data) {
     return request({

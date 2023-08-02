@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import FooterHome from "../components/FooterHome/FooterHome";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import Login from "../pages/login/Login";
 
 export default function HomeLayout() {
@@ -24,7 +24,7 @@ export default function HomeLayout() {
             flexDirection: "column",
           }}
         >
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, marginTop: 20 }}>
             <Outlet />
           </div>
           <FooterHome />

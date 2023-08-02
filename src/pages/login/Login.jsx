@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import "../../styles/style.scss";
 // material-ui
 import { useTheme } from "@mui/material/styles";
